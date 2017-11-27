@@ -1,0 +1,826 @@
+Analysis & Synthesis report for processador
+Thu Nov 23 21:15:25 2017
+Quartus Prime Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |processador|CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Source assignments for IMemory:liga2|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated
+ 13. Source assignments for DMemory:liga3|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated
+ 14. Parameter Settings for User Entity Instance: IMemory:liga2|LPM_RAM_DQ:M
+ 15. Parameter Settings for User Entity Instance: DMemory:liga3|LPM_RAM_DQ:M
+ 16. Port Connectivity Checks: "CPU:liga1|PO:liga2|ula:alu|somadorsubtrator:somasub|somador16:somador"
+ 17. Port Connectivity Checks: "CPU:liga1|PO:liga2"
+ 18. Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4"
+ 19. Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1|MeioSomador:Som10"
+ 20. Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1|MeioSomador:Som00"
+ 21. Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1"
+ 22. Post-Synthesis Netlist Statistics for Top Partition
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel MegaCore Function License Agreement, or other 
+applicable license agreement, including, without limitation, 
+that your use is for the sole purpose of programming logic 
+devices manufactured by Intel and sold by Intel or its 
+authorized distributors.  Please refer to the applicable 
+agreement for further details.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Nov 23 21:15:25 2017       ;
+; Quartus Prime Version           ; 17.0.0 Build 595 04/25/2017 SJ Lite Edition ;
+; Revision Name                   ; processador                                 ;
+; Top-level Entity Name           ; processador                                 ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 2                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; processador        ; processador        ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; OpenCore Plus hardware evaluation                                               ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; PowerPlay Power Optimization During Synthesis                                   ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                               ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                           ; Library ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+; ula.vhd                          ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/ula.vhd                                   ;         ;
+; somadorsubtrator.vhd             ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/somadorsubtrator.vhd                      ;         ;
+; somadorcompleto.vhd              ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/somadorcompleto.vhd                       ;         ;
+; somador16.vhd                    ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/somador16.vhd                             ;         ;
+; Somador.vhd                      ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/Somador.vhd                               ;         ;
+; reg16.vhd                        ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/reg16.vhd                                 ;         ;
+; reg2.vhd                         ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/reg2.vhd                                  ;         ;
+; ProcessadorBIP3.vhd              ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd                       ;         ;
+; ProcessadorBIP.vhd               ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd                        ;         ;
+; PO.vhd                           ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd                                    ;         ;
+; PC.vhd                           ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/PC.vhd                                    ;         ;
+; mux3_1.vhd                       ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/mux3_1.vhd                                ;         ;
+; mux2_1.vhd                       ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/mux2_1.vhd                                ;         ;
+; Multiplexador.vhd                ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/Multiplexador.vhd                         ;         ;
+; MeioSomador.vhd                  ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/MeioSomador.vhd                           ;         ;
+; meiosoma.vhd                     ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/meiosoma.vhd                              ;         ;
+; IMemory.vhd                      ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/IMemory.vhd                               ;         ;
+; extensao.vhd                     ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/extensao.vhd                              ;         ;
+; DMemory.vhd                      ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/DMemory.vhd                               ;         ;
+; deslocador.vhd                   ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/deslocador.vhd                            ;         ;
+; Decodificador.vhd                ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd                         ;         ;
+; CPU.vhd                          ; yes             ; User VHDL File               ; /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd                                   ;         ;
+; lpm_ram_dq.tdf                   ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_ram_dq.tdf        ;         ;
+; altram.inc                       ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.inc            ;         ;
+; lpm_mux.inc                      ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_mux.inc           ;         ;
+; lpm_decode.inc                   ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_decode.inc        ;         ;
+; aglobal170.inc                   ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/aglobal170.inc        ;         ;
+; altram.tdf                       ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf            ;         ;
+; memmodes.inc                     ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/others/maxplus2/memmodes.inc        ;         ;
+; altsyncram.inc                   ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altsyncram.inc        ;         ;
+; altsyncram.tdf                   ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altsyncram.tdf        ;         ;
+; stratix_ram_block.inc            ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/stratix_ram_block.inc ;         ;
+; a_rdenreg.inc                    ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/a_rdenreg.inc         ;         ;
+; altrom.inc                       ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altrom.inc            ;         ;
+; altdpram.inc                     ; yes             ; Megafunction                 ; /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altdpram.inc          ;         ;
+; db/altsyncram_d6g1.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf                    ;         ;
+; db/altsyncram_86g1.tdf           ; yes             ; Auto-Generated Megafunction  ; /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf                    ;         ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 0     ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 0     ;
+;     -- 7 input functions                    ; 0     ;
+;     -- 6 input functions                    ; 0     ;
+;     -- 5 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 0     ;
+;     -- <=3 input functions                  ; 0     ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 2     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |processador               ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 2    ; 0            ; |processador        ; processador ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |processador|CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              ;
++----------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+-------------------+------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+-------------------+-----------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+-------------------+-------------------+------------------+------------------+-----------------+------------------+-------------------+-------------------+---------------------+--------------------+--------------------+-------------------+------------------+-------------------+--------------------+--------------------+-------------------+-------------------+------------------+------------------+------------------+----------------------+
+; Name                 ; estado_atual.SRLL ; estado_atual.SLLL ; estado_atual.XORI ; estado_atual.XOOR3 ; estado_atual.XOOR2 ; estado_atual.XOOR1 ; estado_atual.XOOR ; estado_atual.ORI ; estado_atual.OOR3 ; estado_atual.OOR2 ; estado_atual.OOR1 ; estado_atual.ANND3 ; estado_atual.ANND2 ; estado_atual.ANND1 ; estado_atual.ANND ; estado_atual.NO ; estado_atual.JMP ; estado_atual.BLE ; estado_atual.BLT ; estado_atual.BGE ; estado_atual.BGT ; estado_atual.BNE ; estado_atual.BEQ ; estado_atual.SUBI1 ; estado_atual.SUB2 ; estado_atual.SUB1 ; estado_atual.LDI ; estado_atual.LD2 ; estado_atual.LD ; estado_atual.STO ; estado_atual.ESP2 ; estado_atual.ESP1 ; estado_atual.EADDI1 ; estado_atual.ANNDI ; estado_atual.EADD3 ; estado_atual.SUB3 ; estado_atual.OOR ; estado_atual.SUB4 ; estado_atual.EADD4 ; estado_atual.EADD2 ; estado_atual.EADD ; estado_atual.OORI ; estado_atual.LD3 ; estado_atual.LD4 ; estado_atual.HLT ; estado_atual.inicial ;
++----------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+-------------------+------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+-------------------+-----------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+-------------------+-------------------+------------------+------------------+-----------------+------------------+-------------------+-------------------+---------------------+--------------------+--------------------+-------------------+------------------+-------------------+--------------------+--------------------+-------------------+-------------------+------------------+------------------+------------------+----------------------+
+; estado_atual.inicial ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 0                    ;
+; estado_atual.HLT     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 1                ; 1                    ;
+; estado_atual.LD4     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 1                ; 0                ; 1                    ;
+; estado_atual.LD3     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 1                ; 0                ; 0                ; 1                    ;
+; estado_atual.OORI    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 1                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.EADD    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 1                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.EADD2   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 1                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.EADD4   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 1                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SUB4    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 1                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.OOR     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 1                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SUB3    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 1                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.EADD3   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 1                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ANNDI   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 1                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.EADDI1  ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 1                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ESP1    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 1                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ESP2    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 1                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.STO     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 1                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.LD      ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 1               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.LD2     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 1                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.LDI     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 1                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SUB1    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 1                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SUB2    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 1                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SUBI1   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.BEQ     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.BNE     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.BGT     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.BGE     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.BLT     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.BLE     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.JMP     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.NO      ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 1               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ANND    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 1                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ANND1   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 1                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ANND2   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 1                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ANND3   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 1                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.OOR1    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 1                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.OOR2    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 1                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.OOR3    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 1                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.ORI     ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 1                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.XOOR    ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 1                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.XOOR1   ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 1                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.XOOR2   ; 0                 ; 0                 ; 0                 ; 0                  ; 1                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.XOOR3   ; 0                 ; 0                 ; 0                 ; 1                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.XORI    ; 0                 ; 0                 ; 1                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SLLL    ; 0                 ; 1                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
+; estado_atual.SRLL    ; 1                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                 ; 0                 ; 0                  ; 0                  ; 0                  ; 0                 ; 0               ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0               ; 0                ; 0                 ; 0                 ; 0                   ; 0                  ; 0                  ; 0                 ; 0                ; 0                 ; 0                  ; 0                  ; 0                 ; 0                 ; 0                ; 0                ; 0                ; 1                    ;
++----------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+-------------------+------------------+-------------------+-------------------+-------------------+--------------------+--------------------+--------------------+-------------------+-----------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+--------------------+-------------------+-------------------+------------------+------------------+-----------------+------------------+-------------------+-------------------+---------------------+--------------------+--------------------+-------------------+------------------+-------------------+--------------------+--------------------+-------------------+-------------------+------------------+------------------+------------------+----------------------+
+
+
++----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                           ;
++-------------------------------------------------------------------------+--------------------+
+; Register name                                                           ; Reason for Removal ;
++-------------------------------------------------------------------------+--------------------+
+; CPU:liga1|PO:liga2|reg2:reg_status|Q[0,1]                               ; Lost fanout        ;
+; CPU:liga1|PO:liga2|reg16:reg_acc|Q[0..15]                               ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[0..10]                        ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.inicial ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.HLT     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.LD4     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.LD3     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.OORI    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.EADD    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.EADD2   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.EADD4   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SUB4    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.OOR     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SUB3    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.EADD3   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ANNDI   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.EADDI1  ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ESP1    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ESP2    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.STO     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.LD      ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.LD2     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.LDI     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SUB1    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SUB2    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SUBI1   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.BEQ     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.BNE     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.BGT     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.BGE     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.BLT     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.BLE     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.JMP     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.NO      ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ANND    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ANND1   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ANND2   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ANND3   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.OOR1    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.OOR2    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.OOR3    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.ORI     ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.XOOR    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.XOOR1   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.XOOR2   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.XOOR3   ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.XORI    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SLLL    ; Lost fanout        ;
+; CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4|estado_atual.SRLL    ; Lost fanout        ;
+; Total Number of Removed Registers = 75                                  ;                    ;
++-------------------------------------------------------------------------+--------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                        ;
++-----------------------------------------------+--------------------+-----------------------------------------------+
+; Register name                                 ; Reason for Removal ; Registers Removed due to This Register        ;
++-----------------------------------------------+--------------------+-----------------------------------------------+
+; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[10] ; Lost Fanouts       ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[9], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[8], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[7], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[6], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[5], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[4], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[3], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[2], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[1], ;
+;                                               ;                    ; CPU:liga1|ProcessadorBIP:liga1|PC:liga3|S[0]  ;
++-----------------------------------------------+--------------------+-----------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Source assignments for IMemory:liga2|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                  ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                   ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------+
+; Source assignments for DMemory:liga3|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+; Assignment                      ; Value              ; From ; To                                                  ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; NORMAL_COMPILATION ; -    ; -                                                   ;
++---------------------------------+--------------------+------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: IMemory:liga2|LPM_RAM_DQ:M ;
++------------------------+-------------+----------------------------------+
+; Parameter Name         ; Value       ; Type                             ;
++------------------------+-------------+----------------------------------+
+; LPM_WIDTH              ; 16          ; Signed Integer                   ;
+; LPM_WIDTHAD            ; 11          ; Signed Integer                   ;
+; LPM_NUMWORDS           ; 2048        ; Signed Integer                   ;
+; LPM_INDATA             ; REGISTERED  ; Untyped                          ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED  ; Untyped                          ;
+; LPM_OUTDATA            ; REGISTERED  ; Untyped                          ;
+; LPM_FILE               ; IMemory.mif ; Untyped                          ;
+; USE_EAB                ; ON          ; Untyped                          ;
+; DEVICE_FAMILY          ; Cyclone V   ; Untyped                          ;
+; CBXI_PARAMETER         ; NOTHING     ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                   ;
++------------------------+-------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: DMemory:liga3|LPM_RAM_DQ:M ;
++------------------------+-------------+----------------------------------+
+; Parameter Name         ; Value       ; Type                             ;
++------------------------+-------------+----------------------------------+
+; LPM_WIDTH              ; 16          ; Signed Integer                   ;
+; LPM_WIDTHAD            ; 11          ; Signed Integer                   ;
+; LPM_NUMWORDS           ; 2048        ; Signed Integer                   ;
+; LPM_INDATA             ; REGISTERED  ; Untyped                          ;
+; LPM_ADDRESS_CONTROL    ; REGISTERED  ; Untyped                          ;
+; LPM_OUTDATA            ; REGISTERED  ; Untyped                          ;
+; LPM_FILE               ; DMemory.mif ; Untyped                          ;
+; USE_EAB                ; ON          ; Untyped                          ;
+; DEVICE_FAMILY          ; Cyclone V   ; Untyped                          ;
+; CBXI_PARAMETER         ; NOTHING     ; Untyped                          ;
+; AUTO_CARRY_CHAINS      ; ON          ; AUTO_CARRY                       ;
+; IGNORE_CARRY_BUFFERS   ; OFF         ; IGNORE_CARRY                     ;
+; AUTO_CASCADE_CHAINS    ; ON          ; AUTO_CASCADE                     ;
+; IGNORE_CASCADE_BUFFERS ; OFF         ; IGNORE_CASCADE                   ;
++------------------------+-------------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:liga1|PO:liga2|ula:alu|somadorsubtrator:somasub|somador16:somador"              ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:liga1|PO:liga2"                                                                 ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; addr ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4" ;
++------+-------+----------+------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                              ;
++------+-------+----------+------------------------------------------------------+
+; clk  ; Input ; Info     ; Stuck at VCC                                         ;
+; rst  ; Input ; Info     ; Stuck at VCC                                         ;
++------+-------+----------+------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1|MeioSomador:Som10"                     ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; cout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1|MeioSomador:Som00" ;
++------+-------+----------+------------------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                          ;
++------+-------+----------+------------------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                                     ;
++------+-------+----------+------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1"                                           ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                             ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+; a[10..1] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; a[0]     ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; cout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 2                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition
+    Info: Processing started: Thu Nov 23 21:14:46 2017
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off processador -c processador
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
+    Info (12022): Found design unit 1: ula-arch File: /home/romulo/intelFPGA_lite/17.0/processador/ula.vhd Line: 11
+    Info (12023): Found entity 1: ula File: /home/romulo/intelFPGA_lite/17.0/processador/ula.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file somadorsubtrator.vhd
+    Info (12022): Found design unit 1: somadorsubtrator-arch File: /home/romulo/intelFPGA_lite/17.0/processador/somadorsubtrator.vhd Line: 10
+    Info (12023): Found entity 1: somadorsubtrator File: /home/romulo/intelFPGA_lite/17.0/processador/somadorsubtrator.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file somadorcompleto.vhd
+    Info (12022): Found design unit 1: somadorcompleto-arch File: /home/romulo/intelFPGA_lite/17.0/processador/somadorcompleto.vhd Line: 9
+    Info (12023): Found entity 1: somadorcompleto File: /home/romulo/intelFPGA_lite/17.0/processador/somadorcompleto.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file somador16.vhd
+    Info (12022): Found design unit 1: somador16-arch File: /home/romulo/intelFPGA_lite/17.0/processador/somador16.vhd Line: 11
+    Info (12023): Found entity 1: somador16 File: /home/romulo/intelFPGA_lite/17.0/processador/somador16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Somador.vhd
+    Info (12022): Found design unit 1: Somador-SomaCompleto File: /home/romulo/intelFPGA_lite/17.0/processador/Somador.vhd Line: 11
+    Info (12023): Found entity 1: Somador File: /home/romulo/intelFPGA_lite/17.0/processador/Somador.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file reg16.vhd
+    Info (12022): Found design unit 1: reg16-arch File: /home/romulo/intelFPGA_lite/17.0/processador/reg16.vhd Line: 10
+    Info (12023): Found entity 1: reg16 File: /home/romulo/intelFPGA_lite/17.0/processador/reg16.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file reg2.vhd
+    Info (12022): Found design unit 1: reg2-arch File: /home/romulo/intelFPGA_lite/17.0/processador/reg2.vhd Line: 10
+    Info (12023): Found entity 1: reg2 File: /home/romulo/intelFPGA_lite/17.0/processador/reg2.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ProcessadorBIP3.vhd
+    Info (12022): Found design unit 1: processador-arqfinal File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 10
+    Info (12023): Found entity 1: processador File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file ProcessadorBIP.vhd
+    Info (12022): Found design unit 1: ProcessadorBIP-Controle File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 16
+    Info (12023): Found entity 1: ProcessadorBIP File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file PO.vhd
+    Info (12022): Found design unit 1: PO-arch File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 16
+    Info (12023): Found entity 1: PO File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file PC.vhd
+    Info (12022): Found design unit 1: PC-arch File: /home/romulo/intelFPGA_lite/17.0/processador/PC.vhd Line: 10
+    Info (12023): Found entity 1: PC File: /home/romulo/intelFPGA_lite/17.0/processador/PC.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux3_1.vhd
+    Info (12022): Found design unit 1: mux3_1-arch File: /home/romulo/intelFPGA_lite/17.0/processador/mux3_1.vhd Line: 10
+    Info (12023): Found entity 1: mux3_1 File: /home/romulo/intelFPGA_lite/17.0/processador/mux3_1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file mux2_1.vhd
+    Info (12022): Found design unit 1: mux2_1-arch File: /home/romulo/intelFPGA_lite/17.0/processador/mux2_1.vhd Line: 10
+    Info (12023): Found entity 1: mux2_1 File: /home/romulo/intelFPGA_lite/17.0/processador/mux2_1.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Multiplexador.vhd
+    Info (12022): Found design unit 1: Multiplexador-Multiplex File: /home/romulo/intelFPGA_lite/17.0/processador/Multiplexador.vhd Line: 11
+    Info (12023): Found entity 1: Multiplexador File: /home/romulo/intelFPGA_lite/17.0/processador/Multiplexador.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file MeioSomador.vhd
+    Info (12022): Found design unit 1: MeioSomador-MSoma File: /home/romulo/intelFPGA_lite/17.0/processador/MeioSomador.vhd Line: 12
+    Info (12023): Found entity 1: MeioSomador File: /home/romulo/intelFPGA_lite/17.0/processador/MeioSomador.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file meiosoma.vhd
+    Info (12022): Found design unit 1: meiosoma-arch File: /home/romulo/intelFPGA_lite/17.0/processador/meiosoma.vhd Line: 9
+    Info (12023): Found entity 1: meiosoma File: /home/romulo/intelFPGA_lite/17.0/processador/meiosoma.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file IMemory.vhd
+    Info (12022): Found design unit 1: IMemory-arch File: /home/romulo/intelFPGA_lite/17.0/processador/IMemory.vhd Line: 13
+    Info (12023): Found entity 1: IMemory File: /home/romulo/intelFPGA_lite/17.0/processador/IMemory.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file extensao.vhd
+    Info (12022): Found design unit 1: extensao-arch File: /home/romulo/intelFPGA_lite/17.0/processador/extensao.vhd Line: 9
+    Info (12023): Found entity 1: extensao File: /home/romulo/intelFPGA_lite/17.0/processador/extensao.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file DMemory.vhd
+    Info (12022): Found design unit 1: DMemory-arch File: /home/romulo/intelFPGA_lite/17.0/processador/DMemory.vhd Line: 16
+    Info (12023): Found entity 1: DMemory File: /home/romulo/intelFPGA_lite/17.0/processador/DMemory.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file deslocador.vhd
+    Info (12022): Found design unit 1: deslocador-arch File: /home/romulo/intelFPGA_lite/17.0/processador/deslocador.vhd Line: 10
+    Info (12023): Found entity 1: deslocador File: /home/romulo/intelFPGA_lite/17.0/processador/deslocador.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Decodificador.vhd
+    Info (12022): Found design unit 1: Decodificador-arch File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 13
+    Info (12023): Found entity 1: Decodificador File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file CPU.vhd
+    Info (12022): Found design unit 1: CPU-cp File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 14
+    Info (12023): Found entity 1: CPU File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 4
+Info (12127): Elaborating entity "processador" for the top level hierarchy
+Info (12128): Elaborating entity "CPU" for hierarchy "CPU:liga1" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(8): used implicit default value for signal "Addrd" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 8
+Warning (10541): VHDL Signal Declaration warning at CPU.vhd(17): used implicit default value for signal "sData" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 17
+Warning (10036): Verilog HDL or VHDL warning at CPU.vhd(17): object "sData2" assigned a value but never read File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 17
+Info (12128): Elaborating entity "ProcessadorBIP" for hierarchy "CPU:liga1|ProcessadorBIP:liga1" File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 23
+Warning (10541): VHDL Signal Declaration warning at ProcessadorBIP.vhd(23): used implicit default value for signal "s2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 23
+Info (12128): Elaborating entity "Somador" for hierarchy "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 27
+Warning (10541): VHDL Signal Declaration warning at Somador.vhd(8): used implicit default value for signal "Cout" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: /home/romulo/intelFPGA_lite/17.0/processador/Somador.vhd Line: 8
+Info (12128): Elaborating entity "MeioSomador" for hierarchy "CPU:liga1|ProcessadorBIP:liga1|Somador:liga1|MeioSomador:Som00" File: /home/romulo/intelFPGA_lite/17.0/processador/Somador.vhd Line: 22
+Info (12128): Elaborating entity "Multiplexador" for hierarchy "CPU:liga1|ProcessadorBIP:liga1|Multiplexador:liga2" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 28
+Info (12128): Elaborating entity "PC" for hierarchy "CPU:liga1|ProcessadorBIP:liga1|PC:liga3" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 29
+Info (12128): Elaborating entity "Decodificador" for hierarchy "CPU:liga1|ProcessadorBIP:liga1|Decodificador:liga4" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(330): signal "Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 330
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(355): signal "Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 355
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(381): signal "Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 381
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(381): signal "N" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 381
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(406): signal "N" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 406
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(431): signal "N" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 431
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(456): signal "Z" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 456
+Warning (10492): VHDL Process Statement warning at Decodificador.vhd(456): signal "N" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 456
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "prox_estado", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "SelB", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "Op", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "WrStatus", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "SelA", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "WrAcc", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "WrRam", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "RdRam", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "Branch", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Warning (10631): VHDL Process Statement warning at Decodificador.vhd(31): inferring latch(es) for signal or variable "WrPC", which holds its previous value in one or more paths through the process File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "WrPC" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "Branch" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "RdRam" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "WrRam" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "WrAcc" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "SelA[0]" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "SelA[1]" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "WrStatus" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "Op[0]" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "Op[1]" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "Op[2]" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "SelB" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SRLL" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SLLL" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.XORI" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.XOOR3" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.XOOR2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.XOOR1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.XOOR" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ORI" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.OOR3" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.OOR2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.OOR1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ANND3" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ANND2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ANND1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ANND" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.NO" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.JMP" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.BLE" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.BLT" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.BGE" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.BGT" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.BNE" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.BEQ" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SUBI1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SUB2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SUB1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.LDI" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.LD2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.LD" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.STO" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ESP2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ESP1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.EADDI1" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.ANNDI" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.EADD3" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SUB3" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.OOR" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.SUB4" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.EADD4" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.EADD2" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.EADD" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.OORI" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.LD3" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.LD4" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.HLT" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (10041): Inferred latch for "prox_estado.inicial" at Decodificador.vhd(31) File: /home/romulo/intelFPGA_lite/17.0/processador/Decodificador.vhd Line: 31
+Info (12128): Elaborating entity "PO" for hierarchy "CPU:liga1|PO:liga2" File: /home/romulo/intelFPGA_lite/17.0/processador/CPU.vhd Line: 24
+Info (12128): Elaborating entity "extensao" for hierarchy "CPU:liga1|PO:liga2|extensao:ext" File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 58
+Info (12128): Elaborating entity "mux3_1" for hierarchy "CPU:liga1|PO:liga2|mux3_1:mux31" File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 59
+Info (12128): Elaborating entity "mux2_1" for hierarchy "CPU:liga1|PO:liga2|mux2_1:mux21" File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 60
+Info (12128): Elaborating entity "reg16" for hierarchy "CPU:liga1|PO:liga2|reg16:reg_acc" File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 61
+Info (12128): Elaborating entity "reg2" for hierarchy "CPU:liga1|PO:liga2|reg2:reg_status" File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 62
+Info (12128): Elaborating entity "ula" for hierarchy "CPU:liga1|PO:liga2|ula:alu" File: /home/romulo/intelFPGA_lite/17.0/processador/PO.vhd Line: 63
+Info (12128): Elaborating entity "deslocador" for hierarchy "CPU:liga1|PO:liga2|ula:alu|deslocador:deslc" File: /home/romulo/intelFPGA_lite/17.0/processador/ula.vhd Line: 28
+Info (12128): Elaborating entity "somadorsubtrator" for hierarchy "CPU:liga1|PO:liga2|ula:alu|somadorsubtrator:somasub" File: /home/romulo/intelFPGA_lite/17.0/processador/ula.vhd Line: 29
+Info (12128): Elaborating entity "somador16" for hierarchy "CPU:liga1|PO:liga2|ula:alu|somadorsubtrator:somasub|somador16:somador" File: /home/romulo/intelFPGA_lite/17.0/processador/somadorsubtrator.vhd Line: 30
+Info (12128): Elaborating entity "somadorcompleto" for hierarchy "CPU:liga1|PO:liga2|ula:alu|somadorsubtrator:somasub|somador16:somador|somadorcompleto:SC1" File: /home/romulo/intelFPGA_lite/17.0/processador/somador16.vhd Line: 22
+Info (12128): Elaborating entity "meiosoma" for hierarchy "CPU:liga1|PO:liga2|ula:alu|somadorsubtrator:somasub|somador16:somador|somadorcompleto:SC1|meiosoma:MS1" File: /home/romulo/intelFPGA_lite/17.0/processador/somadorcompleto.vhd Line: 20
+Info (12128): Elaborating entity "IMemory" for hierarchy "IMemory:liga2" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 18
+Info (12128): Elaborating entity "LPM_RAM_DQ" for hierarchy "IMemory:liga2|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/processador/IMemory.vhd Line: 16
+Info (12130): Elaborated megafunction instantiation "IMemory:liga2|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/processador/IMemory.vhd Line: 16
+Info (12133): Instantiated megafunction "IMemory:liga2|LPM_RAM_DQ:M" with the following parameter: File: /home/romulo/intelFPGA_lite/17.0/processador/IMemory.vhd Line: 16
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+    Info (12134): Parameter "LPM_WIDTHAD" = "11"
+    Info (12134): Parameter "LPM_NUMWORDS" = "2048"
+    Info (12134): Parameter "LPM_INDATA" = "REGISTERED"
+    Info (12134): Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info (12134): Parameter "LPM_OUTDATA" = "REGISTERED"
+    Info (12134): Parameter "LPM_FILE" = "IMemory.mif"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_RAM_DQ"
+    Info (12134): Parameter "USE_EAB" = "ON"
+    Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12128): Elaborating entity "altram" for hierarchy "IMemory:liga2|LPM_RAM_DQ:M|altram:sram" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_ram_dq.tdf Line: 106
+Warning (287001): Assertion warning: altram does not support Cyclone V device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Cyclone V devices File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf Line: 212
+Info (12131): Elaborated megafunction instantiation "IMemory:liga2|LPM_RAM_DQ:M|altram:sram", which is child of megafunction instantiation "IMemory:liga2|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_ram_dq.tdf Line: 106
+Info (12128): Elaborating entity "altsyncram" for hierarchy "IMemory:liga2|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf Line: 103
+Info (12131): Elaborated megafunction instantiation "IMemory:liga2|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "IMemory:liga2|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf Line: 103
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d6g1.tdf
+    Info (12023): Found entity 1: altsyncram_d6g1 File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_d6g1" for hierarchy "IMemory:liga2|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "DMemory" for hierarchy "DMemory:liga3" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 19
+Info (12128): Elaborating entity "LPM_RAM_DQ" for hierarchy "DMemory:liga3|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/processador/DMemory.vhd Line: 19
+Info (12130): Elaborated megafunction instantiation "DMemory:liga3|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/processador/DMemory.vhd Line: 19
+Info (12133): Instantiated megafunction "DMemory:liga3|LPM_RAM_DQ:M" with the following parameter: File: /home/romulo/intelFPGA_lite/17.0/processador/DMemory.vhd Line: 19
+    Info (12134): Parameter "LPM_WIDTH" = "16"
+    Info (12134): Parameter "LPM_WIDTHAD" = "11"
+    Info (12134): Parameter "LPM_NUMWORDS" = "2048"
+    Info (12134): Parameter "LPM_INDATA" = "REGISTERED"
+    Info (12134): Parameter "LPM_ADDRESS_CONTROL" = "REGISTERED"
+    Info (12134): Parameter "LPM_OUTDATA" = "REGISTERED"
+    Info (12134): Parameter "LPM_FILE" = "DMemory.mif"
+    Info (12134): Parameter "LPM_TYPE" = "LPM_RAM_DQ"
+    Info (12134): Parameter "USE_EAB" = "ON"
+    Info (12134): Parameter "INTENDED_DEVICE_FAMILY" = "UNUSED"
+    Info (12134): Parameter "LPM_HINT" = "UNUSED"
+Info (12128): Elaborating entity "altram" for hierarchy "DMemory:liga3|LPM_RAM_DQ:M|altram:sram" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_ram_dq.tdf Line: 106
+Warning (287001): Assertion warning: altram does not support Cyclone V device family -- attempting best-case memory conversions, but power-up states and read during write behavior will be different for Cyclone V devices File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf Line: 212
+Info (12131): Elaborated megafunction instantiation "DMemory:liga3|LPM_RAM_DQ:M|altram:sram", which is child of megafunction instantiation "DMemory:liga3|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/lpm_ram_dq.tdf Line: 106
+Info (12128): Elaborating entity "altsyncram" for hierarchy "DMemory:liga3|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf Line: 103
+Info (12131): Elaborated megafunction instantiation "DMemory:liga3|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block", which is child of megafunction instantiation "DMemory:liga3|LPM_RAM_DQ:M" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altram.tdf Line: 103
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_86g1.tdf
+    Info (12023): Found entity 1: altsyncram_86g1 File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_86g1" for hierarchy "DMemory:liga3|LPM_RAM_DQ:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated" File: /home/romulo/intelFPGA_lite/17.0/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[11]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 302
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[12]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 326
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[13]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 350
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[14]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 374
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[15]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 398
+Warning (14284): Synthesized away the following node(s):
+    Warning (14285): Synthesized away the following RAM node(s):
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[0]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 38
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[1]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 62
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[2]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 86
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[3]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 110
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[4]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 134
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[5]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 158
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[6]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 182
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[7]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 206
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[8]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 230
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[9]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 254
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[10]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 278
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[11]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 302
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[12]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 326
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[13]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 350
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[14]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 374
+        Warning (14320): Synthesized away node "DMemory:liga3|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_86g1:auto_generated|q_a[15]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_86g1.tdf Line: 398
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[0]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 38
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[1]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 62
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[2]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 86
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[3]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 110
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[4]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 134
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[5]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 158
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[6]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 182
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[7]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 206
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[8]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 230
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[9]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 254
+        Warning (14320): Synthesized away node "IMemory:liga2|lpm_ram_dq:M|altram:sram|altsyncram:ram_block|altsyncram_d6g1:auto_generated|q_a[10]" File: /home/romulo/intelFPGA_lite/17.0/processador/db/altsyncram_d6g1.tdf Line: 278
+Info (17049): 75 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 6
+    Warning (15610): No output dependent on input pin "rst" File: /home/romulo/intelFPGA_lite/17.0/processador/ProcessadorBIP3.vhd Line: 6
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 65 warnings
+    Info: Peak virtual memory: 1177 megabytes
+    Info: Processing ended: Thu Nov 23 21:15:25 2017
+    Info: Elapsed time: 00:00:39
+    Info: Total CPU time (on all processors): 00:00:55
+
+

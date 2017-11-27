@@ -1,0 +1,88 @@
+Determining the location of the ModelSim executable...
+
+Using: /home/romulo/intelFPGA_lite/17.0/modelsim_ase/linuxaloem
+
+To specify a ModelSim executable directory, select: Tools -> Options -> EDA Tool Options
+Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-Altera will be used.
+
+**** Generating the ModelSim Testbench ****
+
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off processador -c processador --vector_source="/home/romulo/intelFPGA_lite/17.0/processador/Waveform.vwf" --testbench_file="/home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/Waveform.vwf.vht"
+
+Info: *******************************************************************Info: Running Quartus Prime EDA Netlist Writer    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.    Info: Your use of Intel Corporation's design tools, logic functions     Info: and other software and tools, and its AMPP partner logic     Info: functions, and any output files from any of the foregoing     Info: (including device programming or simulation files), and any     Info: associated documentation or information are expressly subject     Info: to the terms and conditions of the Intel Program License     Info: Subscription Agreement, the Intel Quartus Prime License Agreement,    Info: the Intel MegaCore Function License Agreement, or other     Info: applicable license agreement, including, without limitation,     Info: that your use is for the sole purpose of programming logic     Info: devices manufactured by Intel and sold by Intel or its     Info: authorized distributors.  Please refer to the applicable     Info: agreement for further details.    Info: Processing started: Thu Nov 23 21:56:48 2017Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off processador -c processador --vector_source=/home/romulo/intelFPGA_lite/17.0/processador/Waveform.vwf --testbench_file=/home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/Waveform.vwf.vhtInfo (119006): Selected device 5CGXFC7C7F23C8 for design "processador"Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Completed successfully. 
+
+**** Generating the functional simulation netlist ****
+
+quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="/home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/" processador -c processador
+
+Info: *******************************************************************Info: Running Quartus Prime EDA Netlist Writer    Info: Version 17.0.0 Build 595 04/25/2017 SJ Lite Edition    Info: Copyright (C) 2017  Intel Corporation. All rights reserved.    Info: Your use of Intel Corporation's design tools, logic functions     Info: and other software and tools, and its AMPP partner logic     Info: functions, and any output files from any of the foregoing     Info: (including device programming or simulation files), and any     Info: associated documentation or information are expressly subject     Info: to the terms and conditions of the Intel Program License     Info: Subscription Agreement, the Intel Quartus Prime License Agreement,    Info: the Intel MegaCore Function License Agreement, or other     Info: applicable license agreement, including, without limitation,     Info: that your use is for the sole purpose of programming logic     Info: devices manufactured by Intel and sold by Intel or its     Info: authorized distributors.  Please refer to the applicable     Info: agreement for further details.    Info: Processing started: Thu Nov 23 21:56:49 2017Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=/home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/ processador -c processadorInfo (119006): Selected device 5CGXFC7C7F23C8 for design "processador"Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.Info (204019): Generated file processador.vho in folder "/home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim//" for EDA simulation toolInfo: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning    Info: Peak virtual memory: 1226 megabytes    Info: Processing ended: Thu Nov 23 21:56:50 2017    Info: Elapsed time: 00:00:01    Info: Total CPU time (on all processors): 00:00:01
+Completed successfully. 
+
+**** Generating the ModelSim .do script ****
+
+/home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/processador.do generated.
+
+Completed successfully. 
+
+**** Running the ModelSim simulation ****
+
+/home/romulo/intelFPGA_lite/17.0/modelsim_ase/linuxaloem/vsim -c -do processador.do
+
+Reading pref.tcl
+# 10.5b
+# do processador.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:56:51 on Nov 23,2017# vcom -work work processador.vho # -- Loading package STANDARD
+# -- Loading package TEXTIO# -- Loading package std_logic_1164
+# -- Loading package altera_lnsim_components
+# -- Loading package VITAL_Timing
+# -- Loading package VITAL_Primitives
+# -- Loading package cyclonev_atom_pack# -- Loading package cyclonev_components
+# -- Compiling entity processador
+# -- Compiling architecture structure of processador# End time: 21:56:51 on Nov 23,2017, Elapsed time: 0:00:00# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:56:51 on Nov 23,2017# vcom -work work Waveform.vwf.vht # -- Loading package STANDARD
+# -- Loading package TEXTIO# -- Loading package std_logic_1164# -- Compiling entity processador_vhd_vec_tst# -- Compiling architecture processador_arch of processador_vhd_vec_tst# End time: 21:56:51 on Nov 23,2017, Elapsed time: 0:00:00# Errors: 0, Warnings: 0
+# vsim -novopt -c -t 1ps -L cyclonev -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.processador_vhd_vec_tst # Start time: 21:56:51 on Nov 23,2017# Loading std.standard# Loading std.textio(body)# Loading ieee.std_logic_1164(body)# Loading work.processador_vhd_vec_tst(processador_arch)# Loading altera_lnsim.altera_lnsim_components# Loading ieee.vital_timing(body)# Loading ieee.vital_primitives(body)# Loading cyclonev.cyclonev_atom_pack(body)# Loading cyclonev.cyclonev_components# Loading work.processador(structure)# Loading cyclonev.cyclonev_io_ibuf(arch)
+# after#32
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# End time: 21:56:51 on Nov 23,2017, Elapsed time: 0:00:00# Errors: 0, Warnings: 1
+Completed successfully. 
+
+**** Converting ModelSim VCD to vector waveform ****
+
+Reading /home/romulo/intelFPGA_lite/17.0/processador/Waveform.vwf...
+
+Reading /home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/processador.msim.vcd...
+
+Processing channel transitions... 
+
+Warning: rst[9] - signal not found in VCD.
+
+Warning: rst[8] - signal not found in VCD.
+
+Warning: rst[7] - signal not found in VCD.
+
+Warning: rst[6] - signal not found in VCD.
+
+Warning: rst[5] - signal not found in VCD.
+
+Warning: rst[4] - signal not found in VCD.
+
+Warning: rst[3] - signal not found in VCD.
+
+Warning: rst[2] - signal not found in VCD.
+
+Warning: rst[1] - signal not found in VCD.
+
+Warning: rst[0] - signal not found in VCD.
+
+Writing the resulting VWF to /home/romulo/intelFPGA_lite/17.0/processador/simulation/qsim/processador_20171123215652.sim.vwf
+
+Finished VCD to VWF conversion.
+
+Completed successfully. 
+
+All completed.
